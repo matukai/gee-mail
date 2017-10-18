@@ -6,6 +6,79 @@
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
         // We have to use window.onload so your JavaScript doesn't execute until the page has loaded and all HTML has been downloaded to your browser
+        console.log(window.geemails);
+/*        console.log(window.geemails[0].date);
+        console.log(window.geemails[0].subject);
+        console.log(window.geemails[0].body);*/
+        for(var i = 0; i<window.geemails.length; i++){
+        	/*console.log(window.geemails[i].date);
+        	console.log(window.geemails[i].subject);
+        	console.log(window.geemails[i].body);*/
+
+            //create container
+        	var container = document.createElement("div");
+            //label container class name "container"
+        	container.className = "container";
+            //apppend container to body via DOM
+        	document.body.appendChild(container);
+
+            //create date div
+        	var dateSent = document.createElement("div");
+            //label classname "dateSent"
+        	dateSent.className = "dateSent";
+            //add text from variable window.geemails
+        	dateSent.innerHTML = window.geemails[i].date;
+            //append to container div
+        	container.appendChild(dateSent);
+
+        	
+            //create subject child div
+        	var subjectBody = document.createElement("div");
+        	subjectBody.className = "subjectBody";
+        	subjectBody.innerHTML = window.geemails[i].subject;
+            //append to container div
+        	container.appendChild(subjectBody);
+             
+
+            //create sender div
+            var senderName = document.createElement("div");
+            senderName.className = "senderName";
+            senderName.innerHTML = window.geemails[i].sender;
+            container.appendChild(senderName);
+
+
+        	//create body child div
+        	var mainBody = document.createElement("div");
+        	mainBody.className = "mainBody";
+        	mainBody.innerHTML = window.geemails[i].body;
+            //append to container div
+        	container.appendChild(mainBody);
+        }
+
+        var bodyText = document.getElementsByClassName("mainBody");
+        
+        function showBody(){
+            var text = this.querySelector(".mainBody")[0];
+            if (text.style.display === "none"){
+                text.style.display = "block";
+            }else{
+                text.style.display = "none";
+            }
+        }
+        for(var i = 0; i<bodyText.length; i++){
+            bodyText[i].addEventListener("click",showBody);
+        }
+
+        var messageCount = 0;
+        for(var i = 0; i<window.geemails.length; i++){
+        	messageCount += window.geemails[i].sender;
+        	console.log("Inbox Messages:" + messageCount);
+        }
+
+
+
+
+
         
       };
     </script>
@@ -13,6 +86,7 @@
 	<body>
 		<div class="container" id="main">
 			Build Me!
+            
 		</div>
 	</body>
 </html>
