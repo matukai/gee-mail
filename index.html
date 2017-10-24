@@ -2,6 +2,8 @@
 	<head>
 		<script src="js/mail-generator.js"></script>
 		<link href="css/style.css" rel="stylesheet" media="screen">
+		<link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+
     <script>
       window.onload = function(){
         // ALL OF YOUR JAVASCRIPT CODE SHOULD GO HERE. 
@@ -52,28 +54,35 @@
         	mainBody.className = "mainBody";
         	mainBody.innerHTML = window.geemails[i].body;
             //append to container div
-        	container.appendChild(mainBody);
+        	subjectBody.appendChild(mainBody);
         }
 
-        var bodyText = document.getElementsByClassName("mainBody");
+        var bodyText = document.getElementsByClassName("subjectBody");
+        for(var i = 0; i<bodyText.length; i++){
+            bodyText[i].addEventListener("click",showBody);
+        }
         
         function showBody(){
-            var text = this.querySelector(".mainBody")[0];
+            var text = this.querySelectorAll(".mainBody")[0];
             if (text.style.display === "none"){
                 text.style.display = "block";
             }else{
                 text.style.display = "none";
             }
         }
-        for(var i = 0; i<bodyText.length; i++){
-            bodyText[i].addEventListener("click",showBody);
-        }
 
-        var messageCount = 0;
-        for(var i = 0; i<window.geemails.length; i++){
-        	messageCount += window.geemails[i].sender;
-        	console.log("Inbox Messages:" + messageCount);
-        }
+        //display inbox count via .length property
+        var count = document.createElement("div");
+        count.idName = "inboxCount"
+        count.innerHTML = "Number of Messages: " + window.geemails.length;
+        inboxCount.appendChild(count);
+
+        function getNewMessage(){
+            
+        }return generateNewMessage(now)
+        setInterval(getNewMessage, 3000);
+
+
 
 
 
@@ -85,8 +94,11 @@
 	</head>
 	<body>
 		<div class="container" id="main">
-			Build Me!
+			<h1>WeLcOmE tO yOuR gEe-MaIl InBoX!</h1>
+			
+			<h2 id="inboxCount"></h2>
             
+            <h2>Inbox:</h2>
 		</div>
 	</body>
 </html>
