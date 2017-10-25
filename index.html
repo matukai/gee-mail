@@ -73,14 +73,59 @@
 
         //display inbox count via .length property
         var count = document.createElement("div");
-        count.idName = "inboxCount"
+        count.id = "inboxCount";
         count.innerHTML = "Number of Messages: " + window.geemails.length;
         inboxCount.appendChild(count);
 
-        function getNewMessage(){
-            
-        }return generateNewMessage(now)
-        setInterval(getNewMessage, 3000);
+
+        function newMessage(){
+            var freshMessage = getNewMessage();
+            //getNewMessage is object
+
+            var newDate = document.createElement("div");
+            newDate.className = "dateSent";
+            newDate.innerHTML = freshMessage.date;
+            container.appendChild(newDate);
+
+            var newSubjectBody = document.createElement("div");
+            newSubjectBody.className = "subjectBody";
+            newSubjectBody.innerHTML = freshMessage.subject;
+            container.appendChild(newSubjectBody);
+
+            var newName = document.createElement("div");
+            newName.className = "senderName";
+            newName.innerHTML = freshMessage.sender;
+            container.appendChild(newName);
+
+            var newBody = document.createElement("div");
+            newBody.className = "mainBody";
+            newBody.innerHTML = freshMessage.body;
+            newSubjectBody.appendChild(newBody);
+
+
+
+            var bodyText = document.getElementsByClassName("subjectBody");
+        for(var i = 0; i<bodyText.length; i++){
+            bodyText[i].addEventListener("click",showBody);
+        }
+        
+        function showBody(){
+            var text = this.querySelectorAll(".mainBody")[0];
+            if (text.style.display === "none"){
+                text.style.display = "block";
+            }else{
+                text.style.display = "none";
+            }
+        }
+
+       
+        count.innerHTML = "Number of Messages: " + window.geemails.length++;
+        
+
+        }
+        setInterval(newMessage,2000);
+
+
 
 
 
@@ -97,6 +142,7 @@
 			<h1>WeLcOmE tO yOuR gEe-MaIl InBoX!</h1>
 			
 			<h2 id="inboxCount"></h2>
+            
             
             <h2>Inbox:</h2>
 		</div>
