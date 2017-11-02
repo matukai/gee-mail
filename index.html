@@ -57,6 +57,7 @@
         	subjectBody.appendChild(mainBody);
         }
 
+        //toggle event listener on click subject
         var bodyText = document.getElementsByClassName("subjectBody");
         for(var i = 0; i<bodyText.length; i++){
             bodyText[i].addEventListener("click",showBody);
@@ -102,8 +103,6 @@
             newBody.innerHTML = freshMessage.body;
             newSubjectBody.appendChild(newBody);
 
-
-
             var bodyText = document.getElementsByClassName("subjectBody");
         for(var i = 0; i<bodyText.length; i++){
             bodyText[i].addEventListener("click",showBody);
@@ -117,34 +116,29 @@
                 text.style.display = "none";
             }
         }
-
        
         count.innerHTML = "Number of Messages: " + window.geemails.length++;
         
-
         }
         setInterval(newMessage,2000);
 
+        console.log(getNewMessage());
 
-
-
-
-
-
-
-
-        
       };
     </script>
 	</head>
 	<body>
+
+
 		<div class="container" id="main">
-			<h1>WeLcOmE tO yOuR gEe-MaIl InBoX!</h1>
-			
-			<h2 id="inboxCount"></h2>
+			<h1 id="heading">Google</h1>
+			<h4>Welcome To Your Inbox</h4>
+			<h3 id="inboxCount"></h3>
+            <h3 id="messages">Messages:</h3>
+        
             
-            
-            <h2>Inbox:</h2>
 		</div>
+
+
 	</body>
 </html>

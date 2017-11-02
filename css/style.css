@@ -1,23 +1,27 @@
 .container{
-	border: 5px solid blue;
-	background-color: grey;
-	padding: 5px;
-	font-family: 'VT323', monospace;
+	background-color: #ffeead;
+}
+.dateSent{
+	border:red;
 }
 .subjectBody{
-	border: 7px solid red;
-	padding: 5px;
-
+	border: 3px;
+	border-color:red;
+	padding:
 }
 .mainBody{
-	border: 3px solid yellow;
+	border: 1px solid white;
 	padding: 5px;
 	display: none;
-	text-align:center;
-	text-shadow: 3px 3px yellow
-
 }
 .senderName{
-	border: 5px solid green;
-	padding: 5px;
+	padding:
+
+}
+#heading{
+	text-align:center;
+	text-shadow:5px 5px white;
+}
+#newSubjectBody{
+	background-color: red;
 }
